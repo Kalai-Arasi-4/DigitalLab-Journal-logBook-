@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Experiment 2 - CSS3 Styling</title>
+  <style>
+    /* ===== General Page Design ===== */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #e6f2ff, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #004080, #0066cc);
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    header h2, header h3 {
+      margin: 5px 0;
+      font-weight: normal;
+    }
+
+    /* ===== Navigation Bar ===== */
+    nav {
+      background-color: #003366;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+
+    /* ===== Section Design ===== */
+    section {
+      background-color: #ffffff;
+      margin: 30px auto;
+      width: 80%;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #003366;
+      border-bottom: 3px solid #0066cc;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #004080;
+      margin-top: 20px;
+    }
+
+    ul, ol {
+      text-align: left;
+      margin-left: 40px;
+    }
+
+    .inline-style {
+      color: crimson;
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: darkgreen;
+      background-color: #e6ffe6;
+      padding: 10px;
+      border-left: 5px solid #009933;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .background-demo {
+      background-color: #d0eaff;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>DIGITAL LAB JOURNAL / LOGBOOK</h1>
+    <h2>Bachelor of Engineering - Computer Science and Engineering</h2>
+    <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="experiments.html">Experiments</a>
+  </nav>
+
+  <section>
+    <h2>Experiment 2: CSS3 Styling</h2>
+
+    <h3>AIM:</h3>
+    <p>To design a webpage using CSS3 styles including inline, internal, external styles, background and text properties.</p>
+
+    <h3>REQUIREMENTS:</h3>
+    <ul>
+      <li>HTML5 and CSS3 supported browser</li>
+      <li>Text Editor (e.g., VS Code)</li>
+    </ul>
+
+    <h3>PROCEDURE:</h3>
+    <ol>
+      <li>Create a new HTML file and include HTML5 structure.</li>
+      <li>Apply Inline CSS within an element.</li>
+      <li>Use Internal CSS inside the &lt;style&gt; tag.</li>
+      <li>Link an External CSS file (optional).</li>
+      <li>Use background and text properties for design.</li>
+      <li>Save and open in browser to see the result.</li>
+    </ol>
+
+    <h3>OUTPUT:</h3>
+
+    <p>This is an example of <span class="inline-style">Inline Style</span>.</p>
+
+    <div class="highlight">
+      This section uses Internal CSS with text color and background.
+    </div>
+
+    <div class="background-demo">
+      This block demonstrates <strong>Background Properties</strong> using Inline CSS.
+    </div>
+
+    <p style="font-family: 'Courier New', monospace; font-size: 16px;">
+      This paragraph uses inline font styles.
+    </p>
+
+    <h3>RESULT:</h3>
+    <p>Thus, the webpage was created successfully using different CSS3 styling methods and properties.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Kalaiyarasi A | B.E. CSE | MCET
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 9 - Digital Lab Journal / Logbook</title>
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f4f8ff;
+}
+
+/* ===== Header (College Name) ===== */
+header {
+  background-color: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ===== Navigation Bar ===== */
+nav {
+  background-color: #1e5fa1;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 25px;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+  text-align: center;
+  margin-top: 20px;
+  color: #1d3557;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ===== Main Content ===== */
+main {
+  padding: 30px;
+}
+
+/* ===== Student Card ===== */
+.student {
+  background-color: #ffffff;
+  border: 2px solid #d3e3ff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px #c9d8f0;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* ===== Performance Coloring ===== */
+.student[performance="excellent"] {
+  border-left: 6px solid #28a745;
+}
+.student[performance="average"] {
+  border-left: 6px solid #ffc107;
+}
+.student[performance="poor"] {
+  border-left: 6px solid #dc3545;
+}
+
+/* ===== Text Styling ===== */
+.name {
+  font-size: 1.4em;
+  color: #0a3d62;
+  font-weight: bold;
+}
+.details {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.project {
+  background-color: #eef4ff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 4px solid #1e5fa1;
+}
+
+/* ===== Logbook Entries ===== */
+.entry {
+  margin-left: 15px;
+  margin-bottom: 6px;
+  padding: 6px;
+  border-radius: 4px;
+}
+.entry[status="completed"] {
+  background: #ecfff1;
+  border-left: 4px solid #4caf50;
+}
+.entry[status="pending"] {
+  background: #fff2e2;
+  border-left: 4px solid #f4a261;
+}
+
+/* ===== Feedback ===== */
+.feedback:not(:empty) {
+  display: block;
+  color: #fff;
+  background: #e03c3c;
+  padding: 6px;
+  margin-top: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+.feedback:empty {
+  display: none;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 30px;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  DR. MAHALINGAM COLLEGE OF ENGINEERING AND TECHNOLOGY
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Experiments</a>
+  <a href="#">Contact</a>
+</nav>
+
+<div class="page-title">Digital Lab Journal / Logbook – Experiment 9</div>
+
+<main>
+
+  <div class="student" performance="poor">
+    <div class="name">Kalaiyarasi A</div>
+    <div class="details">
+      Roll No: 23CS101<br>
+      Department: Computer Science and Engineering<br>
+      Year: III Year<br>
+      Contact: +91 9876543210
+    </div>
+
+    <div class="project">
+      <b>Project:</b> Smart Agriculture Using IoT<br>
+      <b>Guide:</b> Dr. Manikandan S
+    </div>
+
+    <div class="logbook">
+      <div class="entry" status="completed">2025-10-05 – Project Topic Approval</div>
+      <div class="entry" status="completed">2025-10-10 – Hardware Components Listed</div>
+      <div class="entry" status="pending">2025-10-20 – Sensor Integration Testing</div>
+    </div>
+
+    <div class="feedback">⚠️ Critical Alert: Submission overdue – update logbook immediately.</div>
+  </div>
+
+  <div class="student" performance="excellent">
+    <div class="name">Priya S</div>
+    <div class="details">
+      Roll No: 23CS102<br>
+      Department: Computer Science and Engineering<br>
+      Year: III Year<br>
+      Contact: +91 9123456780
+    </div>
+
+    <div class="project">
+      <b>Project:</b> Smart Waste Management System<br>
+      <b>Guide:</b> Dr. K. Aravind
+    </div>
+
+    <div class="logbook">
+      <div class="entry" status="completed">2025-09-25 – Project Proposal Submission</div>
+      <div class="entry" status="completed">2025-10-02 – Prototype Design Completed</div>
+    </div>
+
+    <div class="feedback"></div>
+  </div>
+
+</main>
+
+<footer>
+  © 2025 Department of Computer Science and Engineering – Digital Lab Journal
+</footer>
+
+</body>
+</html>

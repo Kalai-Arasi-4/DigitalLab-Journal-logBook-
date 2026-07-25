@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 7 - HTML5 with Embedded JavaScript</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f8fc;
+    text-align: center;
+  }
+
+  /* Header Section */
+  .header {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  .header h3 {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* Main content */
+  .container {
+    background-color: white;
+    width: 60%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  h4 {
+    color: #003366;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    padding: 8px 18px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #00509e;
+  }
+
+  /* Footer Section */
+  .footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+    <h2>Experiment 7 - HTML5 with Embedded JavaScript using Function</h2>
+    <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h4>JavaScript Function Demonstration</h4>
+    <p>Enter your name below:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <br>
+    <button onclick="displayMessage()">Submit</button>
+    <p id="message" style="font-weight:bold; margin-top:20px; color:#003366;"></p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 DigitalLab Journal | Web Programming Laboratory
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function displayMessage() {
+      var name = document.getElementById("nameInput").value;
+      if (name.trim() === "") {
+        document.getElementById("message").innerHTML = "Please enter your name!";
+      } else {
+        document.getElementById("message").innerHTML = "Welcome, " + name + "! Have a great day!";
+      }
+    }
+  </script>
+
+</body>
+</html>

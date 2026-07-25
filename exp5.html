@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 5 - Pop-up Boxes and Functions</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #edf3fb;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #063970;
+        color: white;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    header h2 {
+        margin: 8px 0 4px 0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    header p {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    nav {
+        background-color: #0a63b0;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65vh;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 350px;
+    }
+
+    .card h3 {
+        color: #063970;
+        margin-bottom: 20px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #0a63b0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #084c82;
+    }
+
+    #output {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #063970;
+    }
+
+    footer {
+        background-color: #063970;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+    <h2>Experiment 5 - Pop-up Boxes and Functions</h2>
+    <p>Dr. Mahalingam College of Engineering and Technology</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="experiments.html">Experiments</a> |
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h3>Interactive Pop-up Boxes</h3>
+
+        <button onclick="showAlert()">Show Alert Box</button>
+        <button onclick="showConfirm()">Show Confirm Box</button>
+        <button onclick="showPrompt()">Show Prompt Box</button>
+        <button onclick="greetUser()">Call Custom Function</button>
+
+        <p id="output"></p>
+    </div>
+</div>
+
+<footer>
+    © 2025 Kalaiyarasi A | B.E. CSE | MCET
+</footer>
+
+<script>
+    function showAlert() {
+        alert("This is an Alert Box!");
+    }
+
+    function showConfirm() {
+        let result = confirm("Do you want to continue?");
+        document.getElementById("output").innerText = result ? "You pressed OK" : "You pressed Cancel";
+    }
+
+    function showPrompt() {
+        let name = prompt("Enter your name:");
+        document.getElementById("output").innerText = name ? "Hello, " + name + "!" : "No name entered.";
+    }
+
+    function greetUser() {
+        let message = "Welcome to Experiment 5!";
+        document.getElementById("output").innerText = message;
+    }
+</script>
+
+</body>
+</html>

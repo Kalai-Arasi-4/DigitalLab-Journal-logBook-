@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 10 - DigitalLab Journal / Logbook</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f9ff;
+    }
+
+    /* Header Section */
+    header {
+        background-color: #004a91;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+    header h1 {
+        margin: 5px 0;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    header h2 {
+        margin: 0;
+        font-size: 18px;
+    }
+    header h3 {
+        margin: 5px 0 15px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    /* Navigation Bar */
+    nav {
+        background-color: #002f5e;
+        text-align: center;
+        padding: 10px 0;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 25px;
+        font-weight: bold;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Main Content Box */
+    .container {
+        background-color: #fff;
+        width: 80%;
+        margin: 30px auto;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+        text-align: center;
+        color: #003366;
+    }
+    pre {
+        background-color: #f0f6ff;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        border-left: 4px solid #004a91;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #004a91;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+    <h2>Bachelor of Engineering - Computer Science and Engineering</h2>
+    <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="experiments.html">Experiments</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <h2>Experiment No. 10</h2>
+    <h3>CONVERT A XML PAGE INTO HTML PAGE USING XSLT – DigitalLab Journal / Logbook</h3>
+
+    <h3>AIM:</h3>
+    <p>To convert an XML document into an HTML web page using XSLT, in order to display structured data in a well-formatted and user-friendly manner for the <b>DigitalLab Journal / Logbook</b> application.</p>
+
+    <h3>ALGORITHM:</h3>
+    <pre>
+Step 1: Start
+Step 2: Create the XML document with required data.
+Step 3: Create the XSLT stylesheet for transforming XML into HTML.
+Step 4: Link the XSLT file in the XML using xml-stylesheet processing instruction.
+Step 5: In XSLT, define &lt;xsl:template match="/"&gt; to start HTML structure.
+Step 6: Use &lt;xsl:value-of&gt; and &lt;xsl:for-each&gt; to extract XML data.
+Step 7: Save both XML and XSL files.
+Step 8: Open the XML file in a web browser to view the transformed HTML.
+Step 9: Display and verify output.
+Step 10: Stop.
+    </pre>
+
+    <h3>SCRIPT:</h3>
+    <pre>
+<b>exp10.xml</b>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="exp10.xsl"?&gt;
+&lt;logbook&gt;
+  &lt;entry&gt;
+    &lt;student&gt;Kalaiyarasi A&lt;/student&gt;
+    &lt;rollno&gt;23CS101&lt;/rollno&gt;
+    &lt;experiment&gt;XML to HTML using XSLT&lt;/experiment&gt;
+    &lt;guide&gt;Dr. Manikandan S&lt;/guide&gt;
+    &lt;date&gt;2025-11-03&lt;/date&gt;
+  &lt;/entry&gt;
+&lt;/logbook&gt;
+
+<b>exp10.xsl</b>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;Logbook Report&lt;/title&gt;&lt;/head&gt;
+    &lt;body style="font-family:Arial; background:#f4f9ff;"&gt;
+      &lt;h2 style="color:#004a91;"&gt;DigitalLab Journal Entry&lt;/h2&gt;
+      &lt;table border="1" cellpadding="8" style="border-collapse:collapse;"&gt;
+        &lt;tr bgcolor="#004a91" style="color:white;"&gt;
+          &lt;th&gt;Student&lt;/th&gt;
+          &lt;th&gt;Roll No&lt;/th&gt;
+          &lt;th&gt;Experiment&lt;/th&gt;
+          &lt;th&gt;Guide&lt;/th&gt;
+          &lt;th&gt;Date&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;xsl:for-each select="logbook/entry"&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;xsl:value-of select="student"/&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;xsl:value-of select="rollno"/&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;xsl:value-of select="experiment"/&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;xsl:value-of select="guide"/&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;xsl:value-of select="date"/&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/table&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+    </pre>
+
+    <h3>OUTPUT:</h3>
+    <p>The XML file when opened in a browser displays a formatted HTML table showing student details and experiment data using the applied XSLT transformation.</p>
+</div>
+
+<footer>
+    © 2025 DigitalLab Journal | Dr. Mahalingam College of Engineering and Technology
+</footer>
+
+</body>
+</html>

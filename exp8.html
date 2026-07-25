@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 8 - XML with DTD and Schema</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f8fc;
+    color: #333;
+  }
+
+  /* Header Section */
+  .header {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin: 0;
+  }
+
+  .header h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  .header h3 {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* Main container */
+  .container {
+    background-color: white;
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  h4 {
+    color: #003366;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  pre {
+    background-color: #e8f0ff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    overflow-x: auto;
+    border-left: 6px solid #003366;
+  }
+
+  .footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+    <h2>Experiment 8 - XML with Internal, External DTD & Schema</h2>
+    <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <h4>1️⃣ Address Book (XML File)</h4>
+    <pre>
+&lt;?xml version="1.0"?&gt;
+&lt;addbook&gt;
+  &lt;details&gt;
+    &lt;name&gt;PRABHU&lt;/name&gt;
+    &lt;DOB&gt;MARCH 23 1995&lt;/DOB&gt;
+    &lt;city&gt;Chennai&lt;/city&gt;
+    &lt;state&gt;Tamilnadu&lt;/state&gt;
+    &lt;pincode&gt;600003&lt;/pincode&gt;
+    &lt;work title="Project Manager" company="TCS" city="Chennai"&gt;&lt;/work&gt;
+    &lt;phoneno&gt;861000188853&lt;/phoneno&gt;
+    &lt;email&gt;prabhu@drmcet.ac.in&lt;/email&gt;
+  &lt;/details&gt;
+
+  &lt;details&gt;
+    &lt;name&gt;Vihann&lt;/name&gt;
+    &lt;DOB&gt;22-OCT-2022&lt;/DOB&gt;
+    &lt;city&gt;Pollachi&lt;/city&gt;
+    &lt;state&gt;Tamilnadu&lt;/state&gt;
+    &lt;pincode&gt;876001&lt;/pincode&gt;
+    &lt;work title="HR" company="Wipro" city="Mumbai"&gt;&lt;/work&gt;
+    &lt;phoneno&gt;9600560190&lt;/phoneno&gt;
+    &lt;email&gt;vihaan@gmail.com&lt;/email&gt;
+  &lt;/details&gt;
+&lt;/addbook&gt;
+    </pre>
+
+    <h4>2️⃣ Internal DTD Implementation</h4>
+    <pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE bookstore [
+  &lt;!ELEMENT bookstore (name,topic+)&gt;
+  &lt;!ELEMENT topic (name,book*)&gt;
+  &lt;!ELEMENT name (#PCDATA)&gt;
+  &lt;!ELEMENT book (title,author)&gt;
+  &lt;!ELEMENT title (#PCDATA)&gt;
+  &lt;!ELEMENT author (#PCDATA)&gt;
+  &lt;!ATTLIST book ISBN CDATA "0"&gt;
+]&gt;
+&lt;bookstore&gt;
+  &lt;name&gt;Mike's Store&lt;/name&gt;
+  &lt;topic&gt;
+    &lt;name&gt;XML&lt;/name&gt;
+    &lt;book ISBN="120-90-100"&gt;
+      &lt;title&gt;Mike's Guide To DTD's and XML Schemas&lt;/title&gt;
+      &lt;author&gt;Mike Jervis&lt;/author&gt;
+    &lt;/book&gt;
+  &lt;/topic&gt;
+&lt;/bookstore&gt;
+    </pre>
+
+    <h4>3️⃣ External DTD Implementation</h4>
+    <pre>
+&lt;!-- DTD File: DTD1.dtd --&gt;
+&lt;!ELEMENT Combomeal (burger,fries,drink)&gt;
+&lt;!ENTITY COLA "Pepsi" &gt;
+&lt;!ELEMENT burger (name,bun)&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!ELEMENT bun (meat,cheese,chick)&gt;
+&lt;!ATTLIST bun bread (white|wheat) #REQUIRED&gt;
+&lt;!ELEMENT meat EMPTY&gt;
+&lt;!ELEMENT cheese EMPTY&gt;
+&lt;!ELEMENT chick EMPTY&gt;
+&lt;!ELEMENT fries EMPTY&gt;
+&lt;!ATTLIST fries size (small|medium|large) #REQUIRED&gt;
+&lt;!ELEMENT drink (#PCDATA)&gt;
+&lt;!ATTLIST drink size (small|medium|large) #REQUIRED&gt;
+    </pre>
+
+    <pre>
+&lt;!-- XML File using external DTD --&gt;
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE Combomeal SYSTEM "DTD1.dtd"&gt;
+&lt;Combomeal&gt;
+  &lt;burger&gt;
+    &lt;name&gt;TASTY BURGER&lt;/name&gt;
+    &lt;bun bread="white"&gt;
+      &lt;meat/&gt;
+      &lt;cheese/&gt;
+      &lt;chick/&gt;
+    &lt;/bun&gt;
+  &lt;/burger&gt;
+  &lt;fries size="large"/&gt;
+  &lt;drink size="large"&gt;&amp;COLA;&lt;/drink&gt;
+&lt;/Combomeal&gt;
+    </pre>
+
+    <h4>4️⃣ XML Schema Example</h4>
+    <pre>
+&lt;?xml version="1.0"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.w3schools.com"
+  elementFormDefault="qualified"&gt;
+
+  &lt;xs:element name="note"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="to" type="xs:string"/&gt;
+        &lt;xs:element name="heading" type="xs:string"/&gt;
+        &lt;xs:element name="body" type="xs:string"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;
+
+&lt;!-- XML File using schema --&gt;
+&lt;?xml version="1.0"?&gt;
+&lt;note xmlns="http://www.w3schools.com"&gt;
+  &lt;to&gt;Kalaiyarasi&lt;/to&gt;
+  &lt;heading&gt;XML Schema Demo&lt;/heading&gt;
+  &lt;body&gt;This XML file follows the schema structure.&lt;/body&gt;
+&lt;/note&gt;
+    </pre>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 DigitalLab Journal | Web Programming Laboratory
+  </div>
+
+</body>
+</html>

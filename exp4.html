@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 4 - Form Validation</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f2f7ff;
+        margin: 0;
+        padding: 0;
+    }
+    header, footer {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+    }
+    main {
+        padding: 30px;
+    }
+    form {
+        background: white;
+        max-width: 400px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        background-color: #0059b3;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #003f7f;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+  <h2>Experiment 4 - Form Validation</h2>
+  <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+</header>
+
+<main>
+<form id="myForm" onsubmit="return validateForm()">
+    <label for="username">User Name:</label>
+    <input type="text" id="username" name="username" placeholder="Enter Username">
+    <div id="usernameError" class="error"></div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter Password">
+    <div id="passwordError" class="error"></div>
+
+    <label for="email">E-Mail:</label>
+    <input type="text" id="email" name="email" placeholder="Enter Email">
+    <div id="emailError" class="error"></div>
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" placeholder="Enter Phone Number">
+    <div id="phoneError" class="error"></div>
+
+    <button type="submit">Submit</button>
+</form>
+</main>
+
+<footer>
+  &copy; 2025 Kalaiyarasi A | B.E. CSE | MCET
+</footer>
+
+<script>
+function validateForm() {
+    let isValid = true;
+
+    // Clear old errors
+    document.getElementById("usernameError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+
+    // Get input values
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    // Username Validation
+    if (username === "") {
+        document.getElementById("usernameError").innerHTML = "Username is required.";
+        isValid = false;
+    } else if (username.length < 3) {
+        document.getElementById("usernameError").innerHTML = "Username must be at least 3 characters.";
+        isValid = false;
+    }
+
+    // Password Validation
+    if (password === "") {
+        document.getElementById("passwordError").innerHTML = "Password is required.";
+        isValid = false;
+    } else if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters.";
+        isValid = false;
+    }
+
+    // Email Validation
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email is required.";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML = "Invalid email format.";
+        isValid = false;
+    }
+
+    // Phone Number Validation
+    let phonePattern = /^[0-9]{10}$/;
+    if (phone === "") {
+        document.getElementById("phoneError").innerHTML = "Phone number is required.";
+        isValid = false;
+    } else if (!phonePattern.test(phone)) {
+        document.getElementById("phoneError").innerHTML = "Phone number must be 10 digits.";
+        isValid = false;
+    }
+
+    // Final
+    if (isValid) {
+        alert("Form submitted successfully!");
+    }
+    return isValid;
+}
+</script>
+
+</body>
+</html>

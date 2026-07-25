@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Experiment 6 - Array Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f7fa;
+    }
+
+    /* Header (like Exp4) */
+    header {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 25px 10px 15px 10px;
+      border-radius: 0 0 15px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Navigation bar */
+    nav {
+      background-color: #01579b;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 15px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "|";
+      color: white;
+      margin-left: 20px;
+    }
+
+    nav a:last-child::after {
+      content: "";
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main box */
+    .box {
+      background: white;
+      width: 60%;
+      margin: 40px auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      color: #003366;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 30px;
+    }
+
+    /* Vertical button layout */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 150px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #0055aa;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>DIGITALLAB JOURNAL / LOGBOOK</h1>
+    <p>Dr. Mahalingam College of Engineering and Technology</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="experiments.html">Experiments</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Content Box -->
+  <div class="box">
+    <h3>📘 JavaScript Array Function Demonstration</h3>
+    <ul id="arrayList"></ul>
+
+    <div class="btn-group">
+      <button onclick="pushItem()">Push()</button>
+      <button onclick="popItem()">Pop()</button>
+      <button onclick="filterItems()">Filter()</button>
+      <button onclick="mapItems()">Map()</button>
+      <button onclick="reduceItems()">Reduce()</button>
+      <button onclick="sortItems()">Sort()</button>
+      <button onclick="findItem()">Find()</button>
+      <button onclick="includesItem()">Includes()</button>
+      <button onclick="forEachDisplay()">ForEach()</button>
+    </div>
+  </div>
+
+  <footer>© 2025 DigitalLab Journal | Department of CSE</footer>
+
+  <script>
+    let numbers = [10, 25, 50, 75, 100];
+    displayArray();
+
+    function displayArray() {
+      const list = document.getElementById("arrayList");
+      list.innerHTML = numbers.map(num => `<li>${num}</li>`).join("");
+    }
+
+    function pushItem() {
+      numbers.push(150);
+      alert("150 added using push()");
+      displayArray();
+    }
+
+    function popItem() {
+      numbers.pop();
+      alert("Last element removed using pop()");
+      displayArray();
+    }
+
+    function filterItems() {
+      const filtered = numbers.filter(n => n < 60);
+      alert("Filtered values (<60): " + filtered.join(", "));
+    }
+
+    function mapItems() {
+      const doubled = numbers.map(n => n * 2);
+      alert("Doubled values: " + doubled.join(", "));
+    }
+
+    function reduceItems() {
+      const total = numbers.reduce((sum, n) => sum + n, 0);
+      alert("Sum of array elements: " + total);
+    }
+
+    function sortItems() {
+      numbers.sort((a, b) => a - b);
+      alert("Array sorted in ascending order.");
+      displayArray();
+    }
+
+    function findItem() {
+      const found = numbers.find(n => n > 50);
+      alert("First number greater than 50: " + found);
+    }
+
+    function includesItem() {
+      const exists = numbers.includes(25);
+      alert("Does array include 25? " + exists);
+    }
+
+    function forEachDisplay() {
+      let output = "";
+      numbers.forEach((n, i) => { output += `Index ${i}: ${n}\n`; });
+      alert("Array Elements:\n" + output);
+    }
+  </script>
+</body>
+</html>
